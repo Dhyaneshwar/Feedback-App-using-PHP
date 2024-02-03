@@ -3,22 +3,9 @@
 ?>
 
 <?php
-    $feedback_data = [[
-      'id' => '1',
-      'name' => "Brad",
-      'email' => 'brad@gmail.com',
-      'body' => 'very good',
-    ],[
-      'id' => '2',
-      'name' => "Brad2",
-      'email' => 'brad2@gmail.com',
-      'body' => 'very good2',
-    ],[
-      'id' => '3',
-      'name' => "Brad3",
-      'email' => 'brad3@gmail.com',
-      'body' => 'very good3',
-    ]];
+    $sql_query = 'SELECT * FROM feedback';
+    $result = mysqli_query($conn, $sql_query);
+    $feedback_data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 
         <h2>Feedback</h2>
@@ -32,7 +19,8 @@
             <div class="card-body text-center">
               <?php echo $feedback['body'] ?>
               <div class="text-secondary mt-2">
-                By  <?php echo $feedback['name'] ?>
+                By  <?php echo $feedback['name'] ?> 
+                on <?php echo $feedback['date'] ?> 
               </div>
             </div>
           </div>

@@ -12,15 +12,20 @@
 
 function registerUser()
 {
+  $x = 10;
   echo 'User has been registered!<br>';
 }
+
+// echo $x; // this wont work, bcoz $x is defined inside functino, so it has function scope.
 
 // Running a function
 registerUser();
 
+$y_global = 10;
 // Adding params
 function registerUser2($username)
 {
+  // echo $y_global; // this wont work, bcoz $y_global is defined outside the scope of function.
   echo "User $username has been registered!<br>";
 }
 
@@ -30,6 +35,9 @@ registerUser2('Brad');
 // Returning values
 function add($num1, $num2)
 {
+  // By using th eglobal keyword, we will be able to access the global y.
+  // global $y_global;
+  // echo 'Global y = ' . $y_global . '<br>'; 
   return $num1 + $num2;
 }
 

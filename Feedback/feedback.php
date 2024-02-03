@@ -2,35 +2,41 @@
   require 'inc/header.php'
 ?>
 
+<?php
+    $feedback_data = [[
+      'id' => '1',
+      'name' => "Brad",
+      'email' => 'brad@gmail.com',
+      'body' => 'very good',
+    ],[
+      'id' => '2',
+      'name' => "Brad2",
+      'email' => 'brad2@gmail.com',
+      'body' => 'very good2',
+    ],[
+      'id' => '3',
+      'name' => "Brad3",
+      'email' => 'brad3@gmail.com',
+      'body' => 'very good3',
+    ]];
+?>
+
         <h2>Feedback</h2>
 
-        <div class="card my-3">
-          <div class="card-body">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta
-            molestias animi earum eos dolorem repellat a quibusdam, aperiam vero
-            repellendus voluptatibus natus deserunt sed doloribus inventore,
-            totam labore maxime perferendis!
-          </div>
-        </div>
+        <?php if(empty($feedback_data)): ?>
+          <p class='lead mt3'>There is no feedback</p>
+        <?php endif ?>
 
-        <div class="card my-3">
-          <div class="card-body">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta
-            molestias animi earum eos dolorem repellat a quibusdam, aperiam vero
-            repellendus voluptatibus natus deserunt sed doloribus inventore,
-            totam labore maxime perferendis!
+        <?php foreach($feedback_data as $feedback):?>
+          <div class="card my-3 w-75">
+            <div class="card-body text-center">
+              <?php echo $feedback['body'] ?>
+              <div class="text-secondary mt-2">
+                By  <?php echo $feedback['name'] ?>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="card my-3">
-          <div class="card-body">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta
-            molestias animi earum eos dolorem repellat a quibusdam, aperiam vero
-            repellendus voluptatibus natus deserunt sed doloribus inventore,
-            totam labore maxime perferendis!
-          </div>
-        </div>
-
+        <?php endforeach ?>
 <?php
   include 'inc/footer.php'
 ?>
